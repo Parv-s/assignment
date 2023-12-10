@@ -1,0 +1,29 @@
+#include <stdio.h>
+struct Employee {
+    int empId;
+    char name[50];
+    float salary;
+};
+void displayEmployees(struct Employee employees[], int n, float givenSalary)
+{
+	int i;
+    printf("Employees with salary less than %.2f:\n", givenSalary);
+    for (i = 0; i < n; ++i) {
+        if (employees[i].salary < givenSalary)
+		{
+            printf("%d %s %.2f\n", employees[i].empId, employees[i].name, employees[i].salary);
+        }
+    }
+}
+int main() {
+    int n = 4;
+    float givenSalary = 70.0;
+    struct Employee employees[] = {
+        {1234, "Lyanger", 67.67},
+        {1345, "Kajal", 87.87},
+        {69, "Iyanger", 123.45},
+        {70, "Sham", 55},
+    };
+    displayEmployees(employees, n, givenSalary);
+    return 0;
+}
